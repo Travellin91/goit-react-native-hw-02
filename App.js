@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Registr from "./Screens/RegistrationScreen/RegistrationScreen";
 import Login from "./Screens/LoginScreen/LoginScreen";
+
 const MainStack = createStackNavigator();
 
 const loadApplication = async () => {
@@ -15,13 +16,13 @@ const loadApplication = async () => {
 };
 
 const App = () => {
-  const [iasReady, setIasReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
-  if (!iasReady) {
+  if (!isReady) {
     return (
       <AppLoading
         startAsync={loadApplication}
-        onFinish={() => setIasReady(true)}
+        onFinish={() => setIsReady(true)}
         onError={console.warn}
       />
     );
@@ -29,11 +30,16 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <MainStack.Navigator>
+      <MainStack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+      >
         <MainStack.Screen name="Registration" component={Registr} />
         <MainStack.Screen name="Login" component={Login} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
 };
+
 export default App;
