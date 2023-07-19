@@ -9,10 +9,14 @@ import Login from "./Screens/LoginScreen/LoginScreen";
 const MainStack = createStackNavigator();
 
 const loadApplication = async () => {
-  await Font.loadAsync({
-    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
-    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
-  });
+  try {
+    await Font.loadAsync({
+      "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+      "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    });
+  } catch (error) {
+    console.warn("Failed to load fonts:", error);
+  }
 };
 
 const App = () => {
@@ -32,7 +36,7 @@ const App = () => {
     <NavigationContainer>
       <MainStack.Navigator
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}
       >
         <MainStack.Screen name="Registration" component={Registr} />

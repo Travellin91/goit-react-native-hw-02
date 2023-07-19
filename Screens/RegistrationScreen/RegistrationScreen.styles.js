@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
   },
-  limk: {
+  link: {
     marginTop: 16,
     textAlign: "center",
     fontSize: 16,

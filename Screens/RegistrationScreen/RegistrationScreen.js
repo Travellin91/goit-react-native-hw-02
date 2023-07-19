@@ -113,7 +113,7 @@ const Registr = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
               <Text
-                style={styles.limk}
+                style={styles.link}
                 onPress={() => navigation.navigate("Login")}
               >
                 Already have an account? Sign In
